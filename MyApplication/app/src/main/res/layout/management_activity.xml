@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Dashboard"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Danh Mục"
+        android:textAlignment="textStart"
+        />
+
+    <Button
+        android:id="@+id/btnProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sản Phẩm"
+        android:textAlignment="textStart"
+        />
+
+    <Button
+        android:id="@+id/btnUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Người Dùng"
+        android:textAlignment="textStart"
+        />
+</LinearLayout>
