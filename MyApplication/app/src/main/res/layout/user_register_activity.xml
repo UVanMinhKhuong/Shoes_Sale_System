@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First Name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last Name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="20dp"
+        android:textStyle="bold"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="Đăng Ký"
+        android:layout_marginRight="15px"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:id="@+id/txtLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="25dp"
+        android:text="Tôi đã có tài khoản người dùng."
+        android:textColor="#03A9F4"/>
+
+
+    <TextClock
+        android:id="@+id/textclock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:format12Hour="'Hôm nay, ngày' dd 'tháng' MM 'năm' yyyy', giờ 'hh:mm:ss a' "
+        android:format24Hour="E, d-M-yyyy k:m:sa" />
+
+</LinearLayout>
