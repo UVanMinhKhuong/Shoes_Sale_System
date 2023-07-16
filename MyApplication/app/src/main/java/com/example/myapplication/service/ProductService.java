@@ -35,8 +35,8 @@ public class ProductService extends DatabaseContext {
             contentValues.put("price", productModel.getPrice());
             contentValues.put("status", productModel.isStatus());
             contentValues.put("created_by", productModel.getCreatedBy());
-            contentValues.put("category_date", productModel.getCreatedDate().toString());
-            sqLiteDatabase.insert(TableName.CATEGORY, null, contentValues);
+            contentValues.put("CREATED_DATE", productModel.getCreatedDate().toString());
+            sqLiteDatabase.insert(TableName.PRODUCT, null, contentValues);
             return true;
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -74,7 +74,7 @@ public class ProductService extends DatabaseContext {
      * @param id
      * @return
      */
-    public boolean deleteById(int id) {
+    public boolean deleteById(long id) {
         try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
 
             sqLiteDatabase.delete(TableName.PRODUCT, "id = ?", new String[]{String.valueOf(id)});
@@ -95,6 +95,31 @@ public class ProductService extends DatabaseContext {
         List<ProductModel> products = new ArrayList<>();
         try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
             Cursor cursor = sqLiteDatabase.query(TableName.PRODUCT, new String[]{"id", "category_id", "name", "code", "description", "price", "status", "created_by", "created_date"}, null, null, null, null, null, null);
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                long id = cursor.getLong(0);
+                int categoryId = cursor.getInt(1);
+                String name = cursor.getString(2);
+                String code = cursor.getString(3);
+                String description = cursor.getString(4);
+                long price = cursor.getLong(5);
+                boolean status = Boolean.valueOf(String.valueOf(cursor.getInt(6)));
+                long createdBy = cursor.getLong(7);
+
+                products.add(new ProductModel(id, categoryId, name, code, description, price, status, createdBy));
+                cursor.moveToNext();
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        } finally {
+            return products;
+        }
+    }
+
+    public List<ProductModel> findAllByName(String nameProduct) {
+        List<ProductModel> products = new ArrayList<>();
+        try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
+            Cursor cursor = sqLiteDatabase.query(TableName.PRODUCT, new String[]{"id", "category_id", "name", "code", "description", "price", "status", "created_by", "created_date"}, "name like '%?%'", new String[]{nameProduct}, null, null, null, null);
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 long id = cursor.getLong(0);

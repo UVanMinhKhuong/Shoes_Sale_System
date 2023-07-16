@@ -2,9 +2,10 @@ package com.example.myapplication.model;
 
 import android.os.Build;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ProductModel {
+public class ProductModel implements Serializable {
     private long id;
     private String name;
     private String code;

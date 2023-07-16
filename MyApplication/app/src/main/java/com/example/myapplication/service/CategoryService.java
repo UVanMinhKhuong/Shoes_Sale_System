@@ -82,7 +82,7 @@ public class CategoryService extends DatabaseContext {
     public List<CategoryModel> findAll() {
         try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
             List<CategoryModel> categories = new ArrayList<>();
-            Cursor cursor = sqLiteDatabase.query(TableName.CATEGORY, null, null, null, null, null, null, null);
+            Cursor cursor = sqLiteDatabase.query(TableName.CATEGORY, null, null, null, null, null, "id desc", null);
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 int id = cursor.getInt(0);
