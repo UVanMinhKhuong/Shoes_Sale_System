@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.activity.dashboard.AdminGridViewFeature;
 import com.example.myapplication.constant.SharedPreference;
+import com.example.myapplication.fragment.FragmentActivity;
 import com.example.myapplication.model.UserModel;
 import com.example.myapplication.service.UserService;
 import com.example.myapplication.utility.BCryptUtil;
@@ -21,7 +23,7 @@ import com.example.myapplication.utility.BCryptUtil;
 
 import java.util.Objects;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private UserService userService;
 
     private Button btnLogin;
@@ -43,11 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.editTextName);
         edtPassword = findViewById(R.id.editTextPassword);
 
+        super.authorizedUser();
+
         btnLogin.setOnClickListener(view -> {
             String username = edtUsername.getText().toString();
             String password = edtPassword.getText().toString();
 
-            UserModel user = userService.findByUsernameAndPassword(username);
+            UserModel user = userService.findByUsername(username);
             if (Objects.isNull(user)) {
                 Toast.makeText(LoginActivity.this, "Username or password is incorrect!", Toast.LENGTH_SHORT).show();
             } else {
@@ -75,13 +79,15 @@ public class LoginActivity extends AppCompatActivity {
         txtRegister.setOnClickListener(view -> {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
+
         });
 
     }
 
     private void switchToSuccess(UserModel userModel) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, FragmentActivity.class);
         intent.putExtra("email", userModel.email);
         startActivity(intent);
     }
+
 }

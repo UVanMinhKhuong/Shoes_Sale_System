@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,8 +62,8 @@ public class RegisterActivity extends AppCompatActivity {
                     edtFirstName.getText().toString(),
                     edtLastName.getText().toString()
             );
-//            long userId = userService.insert(user);
-//            Toast.makeText(RegisterActivity.this, String.format("The user has been created with id is %s", userId), Toast.LENGTH_LONG).show();
+            long userId = userService.insert(user);
+            Toast.makeText(RegisterActivity.this, String.format("Chúc mừng bạn đã đăng ký thành công."), Toast.LENGTH_LONG).show();
 
             startToLoginActivity();
         });
@@ -83,8 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (charSequence.length() == 0) {
                     errorUsername.setVisibility(View.VISIBLE);
                     errorUsername.setText("Tên tài khoản không được rỗng.");
-                }
-                else {
+                } else {
                     errorUsername.setVisibility(View.GONE);
                 }
             }
@@ -107,8 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (charSequence.length() == 0) {
                     errorEmail.setVisibility(View.VISIBLE);
                     errorEmail.setText("Email không được rỗng.");
-                }
-                else {
+                } else {
                     errorEmail.setVisibility(View.GONE);
                 }
             }
@@ -131,6 +130,14 @@ public class RegisterActivity extends AppCompatActivity {
             errorUsername.setVisibility(View.VISIBLE);
             errorUsername.setText("Tên đăng nhập không được rỗng.");
             isCorrect = false;
+        } else {
+
+            boolean isExistsUsername = userService.isExistsUsername(edtUsername.getText().toString());
+            if(isExistsUsername == true ){
+                errorUsername.setVisibility(View.VISIBLE);
+                errorUsername.setText("Username đã tồn tại trong hệ thống. Vui lòng sử dụng username khác!");
+                isCorrect = !isExistsUsername ;
+            }
         }
 
         if (!edtEmail.getText().toString().contains("@")) {

@@ -23,7 +23,7 @@ import com.example.myapplication.service.ProductService;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class EditProductActivity extends AppCompatActivity {
+public class ProductEditActivity extends AppCompatActivity {
     private CategoryService categoryService;
     private ProductService productService;
 
@@ -37,7 +37,7 @@ public class EditProductActivity extends AppCompatActivity {
 
     int categoryId;
 
-    public EditProductActivity() {
+    public ProductEditActivity() {
         this.categoryService = new CategoryService(this);
         this.productService = new ProductService(this);
     }
@@ -115,10 +115,10 @@ public class EditProductActivity extends AppCompatActivity {
             ProductModel product = new ProductModel(name, code, description, Long.valueOf(price), false, categoryId);
             boolean isInsertSuccess = this.productService.insert(product);
             if(isInsertSuccess){
-                Intent intentProductActivity = new Intent(EditProductActivity.this, ProductActivity.class);
+                Intent intentProductActivity = new Intent(ProductEditActivity.this, ProductActivity.class);
                 startActivity(intentProductActivity);
             }else {
-                Toast.makeText(EditProductActivity.this, "Thêm sản phẩm thất bại.", Toast.LENGTH_SHORT);
+                Toast.makeText(ProductEditActivity.this, "Thêm sản phẩm thất bại.", Toast.LENGTH_SHORT);
             }
         });
     }

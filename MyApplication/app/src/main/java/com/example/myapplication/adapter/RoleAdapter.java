@@ -12,19 +12,21 @@ import androidx.annotation.Nullable;
 
 import com.example.myapplication.R;
 import com.example.myapplication.model.CategoryModel;
+import com.example.myapplication.model.RoleModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CategoryAdapter extends ArrayAdapter<CategoryModel> {
-    private ArrayList<CategoryModel> categories;
+public class RoleAdapter extends ArrayAdapter<RoleModel> {
+    private List<RoleModel> roles;
     private Activity activity;
     private int layoutId;
 
-    public CategoryAdapter(Activity activity, int layout, ArrayList<CategoryModel> categories) {
-        super(activity, layout, categories);
+    public RoleAdapter(Activity activity, int layoutId, List<RoleModel> roles) {
+        super(activity, layoutId, roles);
         this.activity = activity;
-        this.layoutId = layout;
-        this.categories = categories;
+        this.layoutId = layoutId;
+        this.roles = roles;
     }
 
     @NonNull
@@ -33,12 +35,14 @@ public class CategoryAdapter extends ArrayAdapter<CategoryModel> {
         LayoutInflater layoutInflater = this.activity.getLayoutInflater();
         convertView = layoutInflater.inflate(layoutId, null);
 
-        CategoryModel categoryModel = categories.get(position);
-        TextView txtName = convertView.findViewById(R.id.txtName);
-        txtName.setText(categoryModel.name);
+        RoleModel role = roles.get(position);
 
-        TextView txtQuantityProduct = convertView.findViewById(R.id.txtId);
-        txtQuantityProduct.setText(String.valueOf(5));
+        TextView txtName = convertView.findViewById(R.id.txtName);
+        txtName.setText(role.getName());
+
+        TextView txtId = convertView.findViewById(R.id.txtId);
+        txtId.setText(String.valueOf(role.getId()));
+
         return convertView;
     }
 }

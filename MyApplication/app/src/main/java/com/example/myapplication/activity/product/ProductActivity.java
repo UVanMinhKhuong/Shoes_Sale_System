@@ -79,7 +79,7 @@ public class ProductActivity extends AppCompatActivity {
         lvProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent = new Intent(ProductActivity.this, EditProductActivity.class);
+                Intent intent = new Intent(ProductActivity.this, ProductEditActivity.class);
                 ProductModel productModel = productModels.get(position);
                 intent.putExtra("product", productModel);
                 startActivity(intent);
@@ -88,7 +88,7 @@ public class ProductActivity extends AppCompatActivity {
 
         btnAdd.setOnClickListener(view ->
         {
-            Intent intent = new Intent(ProductActivity.this, EditProductActivity.class);
+            Intent intent = new Intent(ProductActivity.this, ProductEditActivity.class);
             startActivity(intent);
         });
     }

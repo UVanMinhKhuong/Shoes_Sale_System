@@ -46,7 +46,7 @@ public class UserService extends DatabaseContext {
         return user;
     }
 
-    public UserModel findByUsernameAndPassword(String username) {
+    public UserModel findByUsername(String username) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT username, password, email, first_name, last_name from USER WHERE USERNAME = ?", new String[]{username});
@@ -64,5 +64,17 @@ public class UserService extends DatabaseContext {
         cursor.close();
 
         return user;
+    }
+
+    /**
+     * Checks exists with the user name
+     *
+     * @param username The username of the user model
+     * @return Return true if the username exists.
+     */
+    public boolean isExistsUsername(String username) {
+        if (findByUsername(username) != null)
+            return true;
+        return false;
     }
 }

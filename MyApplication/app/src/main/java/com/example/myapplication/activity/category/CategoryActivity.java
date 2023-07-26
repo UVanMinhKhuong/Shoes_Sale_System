@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity {
+    private CategoryService categoryService;
 
     private TextInputEditText edtName;
 
@@ -35,7 +36,7 @@ public class CategoryActivity extends AppCompatActivity {
 
     private ListView categoriesListView;
 
-    private CategoryService categoryService;
+
 
     ArrayList<CategoryModel> categoryDataListView = new ArrayList<>();
     CategoryAdapter categoryAdapter;
