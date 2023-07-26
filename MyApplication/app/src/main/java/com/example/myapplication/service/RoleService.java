@@ -55,12 +55,12 @@ public class RoleService extends DatabaseContext {
             Cursor cursor = sqLiteDatabase.query(TableName.ROLE, null, "id = ?", new String[]{String.valueOf(id)}, null, null, null);
             cursor.moveToFirst();
 
-            while (cursor.isAfterLast()) {
+
                 return new RoleModel(
                         cursor.getInt(0),
-                        cursor.getString(1)
-                );
-            }
+                        cursor.getString(1));
+
+
         } catch (Exception exception) {
             exception.printStackTrace();
 

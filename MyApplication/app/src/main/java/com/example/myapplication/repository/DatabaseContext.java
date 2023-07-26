@@ -5,8 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseContext extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "shoes_store.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "shoes_store_v2.db";
+    private static final int DATABASE_VERSION = 2;
 
     public DatabaseContext(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -40,7 +40,7 @@ public class DatabaseContext extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE IF NOT EXISTS SIZE (ID INTEGER PRIMARY KEY AUTOINCREMENT, SIZE INTEGER)");
 
-        db.execSQL("CREATE TABLE IF NOT EXISTS USER (ID INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORD TEXT NOT NULL, FIRST_NAME TEXT, LAST_NAME TEXT, EMAIL TEXT,  PHONE TEXT, JOINED_DATE DATE)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS USER (ID INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT NOT NULL, PASSWORD TEXT NOT NULL, FIRST_NAME TEXT, LAST_NAME TEXT, EMAIL TEXT, PHONE TEXT, JOINED_DATE DATE)");
 
         db.execSQL("CREATE TABLE IF NOT EXISTS USER_ADDRESS (ID INTEGER PRIMARY KEY AUTOINCREMENT, USER_ID INTEGER NOT NULL, ADDRESS TEXT NOT NULL, PHONE BLOB NOT NULL, NOTE TEXT, FOREIGN KEY (USER_ID) REFERENCES USER (ID))");
 
@@ -49,6 +49,13 @@ public class DatabaseContext extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Handle database upgrade if needed
+//
+//        String sql = "ALTER TABLE USER ADD COLUMN PHONE TEXT";
+//        System.out.println(oldVersion);
+//        System.out.println(newVersion);
+//        // If you need to add a column
+//        if (newVersion > oldVersion) {
+//            db.execSQL(sql);
+//        }
     }
 }

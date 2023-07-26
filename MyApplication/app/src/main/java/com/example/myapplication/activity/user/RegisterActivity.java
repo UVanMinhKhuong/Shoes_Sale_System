@@ -50,19 +50,20 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister.setOnClickListener(view -> {
             String password = edtPassword.getText().toString();
-            String passwordDecode = BCryptUtil.decodePassword(password);
+
 
             boolean validation = validation();
             if (!validation)
                 return;
 
             UserModel user = new UserModel(edtUsername.getText().toString(),
-                    passwordDecode,
+                    password,
                     edtEmail.getText().toString(),
                     edtFirstName.getText().toString(),
                     edtLastName.getText().toString()
             );
-            long userId = userService.insert(user);
+            user.setPassword(password);
+            userService.insert(user);
             Toast.makeText(RegisterActivity.this, String.format("Chúc mừng bạn đã đăng ký thành công."), Toast.LENGTH_LONG).show();
 
             startToLoginActivity();

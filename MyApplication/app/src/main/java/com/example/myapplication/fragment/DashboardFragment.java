@@ -24,7 +24,7 @@ public class DashboardFragment extends Fragment {
             Arrays.asList(
                     // Init data
                     new GridViewModel("Vai Trò", R.drawable.adminuserprofile, CardViewItemEnum.ROLE),
-                    new GridViewModel("Người Dùng", R.drawable.adminusers, null),
+                    new GridViewModel("Người Dùng", R.drawable.adminusers, CardViewItemEnum.USER),
                     new GridViewModel("Loại Sản Phẩm", R.drawable.admincategory, CardViewItemEnum.CATEGORY),
                     new GridViewModel("Sản Phẩm", R.drawable.admin_products, CardViewItemEnum.PRODUCT)
             )
