@@ -1,7 +1,6 @@
 package com.example.myapplication.activity.role;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.R;
-import com.example.myapplication.fragment.FragmentActivity;
+import com.example.myapplication.fragment.AdminFragmentActivity;
 import com.example.myapplication.service.RoleService;
 
 public class RoleEditActivity extends Fragment {
@@ -72,7 +71,7 @@ public class RoleEditActivity extends Fragment {
                 roleService.deleteById(id);
 
                 Fragment newFragment = new RoleActivity();
-                FragmentTransaction transaction = ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction = ((AdminFragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.flFragment, newFragment); // R.id.fragment_container là id của container fragment trong MainActivity
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -90,7 +89,7 @@ public class RoleEditActivity extends Fragment {
 
                 Toast.makeText(rootView.getContext(), String.format("Thêm mới vai trò %s thành công.", name), Toast.LENGTH_SHORT);
                 Fragment newFragment = new RoleActivity();
-                FragmentTransaction transaction = ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction = ((AdminFragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.flFragment, newFragment); // R.id.fragment_container là id của container fragment trong MainActivity
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -108,7 +107,7 @@ public class RoleEditActivity extends Fragment {
                 Toast.makeText(rootView.getContext(), String.format("Cập nhật vai trò %s thành công.", name), Toast.LENGTH_SHORT).show();
 
                 Fragment newFragment = new RoleActivity();
-                FragmentTransaction transaction = ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction = ((AdminFragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.flFragment, newFragment); // R.id.fragment_container là id của container fragment trong MainActivity
                 transaction.addToBackStack(null);
                 transaction.commit();

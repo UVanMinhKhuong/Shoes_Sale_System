@@ -1,8 +1,14 @@
 package com.example.myapplication.repository;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.myapplication.Shoes;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseContext extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "shoes_store_v2.db";

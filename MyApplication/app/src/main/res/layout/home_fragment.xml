@@ -5,20 +5,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ShowProductActivity">
 
-    <TextView
-        android:id="@+id/firstFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trang Chủ"
-        android:textColor="#03A9F4"
-        android:textSize="40sp"
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <ListView
+        android:id="@+id/lvShoes"
+        android:layout_width="409dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="38dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/svSearch" />
 
+    <SearchView
+        android:id="@+id/svSearch"
+        android:layout_width="409dp"
+        android:layout_height="50dp"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="2dp" />
+
+    <Button
+        android:id="@+id/btnAddToCart"
+        android:layout_width="252dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="34dp"
+        android:background="#03A9F4"
+        android:text="Thêm vào giỏ hàng"
+        android:textColor="#050505"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvShoes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

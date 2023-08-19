@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,30 +8,34 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.myapplication.R;
+import com.example.myapplication.Shoes;
+import com.example.myapplication.model.ProductModel;
+import com.example.myapplication.service.ProductService;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ShoesAdapter extends BaseAdapter {
+public class ProductAdapter extends BaseAdapter {
     Context myContext;
     int myLayout;
-    List<Shoes> arrayShoes;
+    List<ProductModel> productList;
 
 
-    public ShoesAdapter (Context context, int layout, List<Shoes> listShoes){
+    public ProductAdapter(Context context, int layout, ArrayList<ProductModel> listProduct){
         myContext = context;
         myLayout = layout;
-        arrayShoes = listShoes;
+        productList = listProduct;
 
     }
     @Override
     public int getCount() {
-        return arrayShoes.size();
+        return productList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return productList.get(i);
     }
 
     @Override
@@ -46,11 +50,11 @@ public class ShoesAdapter extends BaseAdapter {
 
         // ánh xạ và gán giá trị
         TextView txtName = (TextView) view.findViewById(R.id.textViewName);
-        txtName.setText(arrayShoes.get(i).Name);
+        txtName.setText(productList.get(i).getName());
         TextView txtPrice = (TextView) view.findViewById(R.id.textViewPrice);
-        txtPrice.setText(arrayShoes.get(i).Price + " VNĐ");
-        ImageView img = (ImageView) view.findViewById(R.id.imageViewImage);
-        img.setImageResource(arrayShoes.get(i).Image);
+        txtPrice.setText(productList.get(i).getPrice() + " VNĐ");
+        //ImageView img = (ImageView) view.findViewById(R.id.imageViewImage);
+        //img.setImageResource(arrayProduct.get(i).Image);
 
         return view;
     }

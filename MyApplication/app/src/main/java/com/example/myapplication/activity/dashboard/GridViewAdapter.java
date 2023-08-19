@@ -15,13 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.R;
-import com.example.myapplication.activity.category.CategoryActivity;
 import com.example.myapplication.activity.role.RoleActivity;
 import com.example.myapplication.activity.user.UserAdminFragment;
-import com.example.myapplication.activity.user.UserEditFragment;
 import com.example.myapplication.enumeration.CardViewItemEnum;
-import com.example.myapplication.fragment.DashboardFragment;
-import com.example.myapplication.fragment.FragmentActivity;
+import com.example.myapplication.fragment.AdminFragmentActivity;
 
 import java.util.ArrayList;
 
@@ -94,7 +91,7 @@ public class GridViewAdapter
     private void onCartHandleSwitchRole() {
         // Xử lý việc chuyển fragment ở đây, ví dụ:
         Fragment newFragment = new RoleActivity();
-        FragmentTransaction transaction = ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = ((AdminFragmentActivity) getContext()).getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.flFragment, newFragment); // R.id.fragment_container là id của container fragment trong MainActivity
         transaction.addToBackStack(null);
         transaction.commit();
@@ -104,7 +101,7 @@ public class GridViewAdapter
     private void onCartHandleSwitchUser() {
         // Xử lý việc chuyển fragment ở đây, ví dụ:
         Fragment newFragment = new UserAdminFragment();
-        FragmentTransaction transaction = ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = ((AdminFragmentActivity) getContext()).getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.flFragment, newFragment); // R.id.fragment_container là id của container fragment trong MainActivity
         transaction.addToBackStack(null);
         transaction.commit();

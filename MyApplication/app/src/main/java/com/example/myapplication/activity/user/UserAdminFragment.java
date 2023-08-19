@@ -15,14 +15,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.UserAdapter;
-import com.example.myapplication.fragment.FragmentActivity;
-import com.example.myapplication.model.UserModel;
+import com.example.myapplication.fragment.AdminFragmentActivity;
 import com.example.myapplication.model.UserResponse;
-import com.example.myapplication.service.UserRoleService;
 import com.example.myapplication.service.UserService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class UserAdminFragment extends Fragment {
 
@@ -56,7 +53,7 @@ public class UserAdminFragment extends Fragment {
 
         btnAdd.setOnClickListener(view -> {
             Fragment newFragment = new UserEditFragment();
-            FragmentTransaction transaction = ((FragmentActivity) getContext()).getSupportFragmentManager().beginTransaction();
+            FragmentTransaction transaction = ((AdminFragmentActivity) getContext()).getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.flFragment, newFragment); // R.id.fragment_container là id của container fragment trong MainActivity
             transaction.addToBackStack(null);
             transaction.commit();

@@ -9,13 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.activity.dashboard.AdminGridViewFeature;
 import com.example.myapplication.constant.SharedPreference;
-import com.example.myapplication.fragment.FragmentActivity;
+import com.example.myapplication.fragment.AdminFragmentActivity;
 import com.example.myapplication.model.UserModel;
 import com.example.myapplication.service.UserService;
 import com.example.myapplication.utility.BCryptUtil;
@@ -45,7 +42,7 @@ public class LoginActivity extends BaseActivity {
         edtUsername = findViewById(R.id.editTextName);
         edtPassword = findViewById(R.id.editTextPassword);
 
-        super.authorizedUser();
+       // super.authorizedUser();
 
         btnLogin.setOnClickListener(view -> {
             String username = edtUsername.getText().toString();
@@ -85,7 +82,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void switchToSuccess(UserModel userModel) {
-        Intent intent = new Intent(this, FragmentActivity.class);
+        Intent intent = new Intent(this, AdminFragmentActivity.class);
         intent.putExtra("email", userModel.email);
         startActivity(intent);
     }

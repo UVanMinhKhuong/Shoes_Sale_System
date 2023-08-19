@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.constant.SharedPreference;
-import com.example.myapplication.fragment.FragmentActivity;
+import com.example.myapplication.fragment.AdminFragmentActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -18,7 +18,7 @@ public class BaseActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, FragmentActivity.class);
+            Intent intent = new Intent(this, AdminFragmentActivity.class);
             startActivity(intent);
         }
     }

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class FragmentActivity extends AppCompatActivity implements BottomNavigationView
+public class AdminFragmentActivity extends AppCompatActivity implements BottomNavigationView
         .OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
 
