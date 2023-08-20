@@ -50,7 +50,7 @@ public class ProductAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(R.layout.product_custom,null);
+        view = inflater.inflate(myLayout,null);
 
         // ánh xạ và gán giá trị
         TextView txtName = (TextView) view.findViewById(R.id.textViewName);
